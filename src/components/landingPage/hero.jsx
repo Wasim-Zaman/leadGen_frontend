@@ -8,9 +8,15 @@ const HeroSection = ({ showHeroImage }) => {
     <header className="relative bg-gradient-to-r from-blue-600 to-blue-400 text-white min-h-screen flex items-center justify-center">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
         <div className="flex flex-col items-start md:w-1/2">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Leading IT services company</h1>
-          <p className="text-lg md:text-2xl mb-6">expertly managing projects across 14+ countries</p>
-          <button className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full hover:bg-gray-200 transition-colors">Subscribe</button>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+            Leading IT services company
+          </h1>
+          <p className="text-lg md:text-2xl mb-6">
+            expertly managing projects across 14+ countries
+          </p>
+          <button className="bg-white text-blue-600 font-bold py-2 px-4 rounded-full hover:bg-gray-200 transition-colors">
+            Subscribe
+          </button>
         </div>
         {showHeroImage && (
           <div className="mt-8 md:mt-0 md:w-1/2 flex justify-center">
@@ -22,18 +28,18 @@ const HeroSection = ({ showHeroImage }) => {
         <img src={curveImage} alt="Curve" className="w-full h-full" />
       </div>
       <div className="absolute bottom-4 left-4 flex space-x-4">
-        <a href="#"><i className="fab fa-facebook-f text-2xl"></i></a>
-        <a href="#"><i className="fab fa-twitter text-2xl"></i></a>
-        <a href="#"><i className="fab fa-linkedin text-2xl"></i></a>
-        <a href="#"><i className="fab fa-youtube text-2xl"></i></a>
-        <a href="#"><i className="fab fa-whatsapp text-2xl"></i></a>
+        <a href="#"><i className="fab fa-facebook-f text-2xl hover:text-gray-300 transition-colors"></i></a>
+        <a href="#"><i className="fab fa-twitter text-2xl hover:text-gray-300 transition-colors"></i></a>
+        <a href="#"><i className="fab fa-linkedin text-2xl hover:text-gray-300 transition-colors"></i></a>
+        <a href="#"><i className="fab fa-youtube text-2xl hover:text-gray-300 transition-colors"></i></a>
+        <a href="#"><i className="fab fa-whatsapp text-2xl hover:text-gray-300 transition-colors"></i></a>
       </div>
-      <a
+      {/* <a
         href="estimation"
-        className="absolute right-4 bottom-4 bg-orange-600 text-white px-4 py-2 rounded-full shadow-lg"
+        className="fixed right-4 bottom-4 bg-orange-600 text-white px-4 py-2 rounded-full shadow-lg hover:bg-orange-500 transition-colors"
       >
          Estimation Request 
-      </a>
+      </a> */}
     </header>
   );
 };

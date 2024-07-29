@@ -34,7 +34,7 @@ const ProcessSection = () => {
         <h2 className="text-2xl md:text-4xl font-bold text-center mb-8">
           <span className="text-blue-600">Our</span> <span className="text-red-500">Process</span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div
               key={index}

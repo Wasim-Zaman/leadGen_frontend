@@ -1,7 +1,7 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import assets from "../../assets/index";
+import assets from "../../assets/index"; // Ensure the assets index includes the new logo
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -35,18 +35,18 @@ const Navbar = () => {
   return (
     <>
       {/* Top bar */}
-      <div className={`bg-white border-b border-gray-200 text-black flex justify-between items-center px-4 py-2 ${scrolled ? 'shadow-lg' : ''}`}>
-        <div className="flex space-x-4">
-          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-facebook-f"></i></a>
-          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-twitter"></i></a>
-          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-linkedin"></i></a>
-          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-youtube"></i></a>
-          <a href="#" onClick={redirectToWhatsApp} className="hover:text-gray-600 transition-colors"><i className="fab fa-whatsapp"></i></a>
+      <div className={`bg-white border-b border-gray-200 text-black flex flex-col md:flex-row justify-between items-center px-6 py-2 ${scrolled ? 'shadow-lg' : ''}`}>
+        <div className="flex space-x-3">
+          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-facebook-f text-xl"></i></a>
+          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-twitter text-xl"></i></a>
+          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-linkedin text-xl"></i></a>
+          <a href="#" className="hover:text-gray-600 transition-colors"><i className="fab fa-youtube text-xl"></i></a>
+          <a href="#" onClick={redirectToWhatsApp} className="hover:text-gray-600 transition-colors"><i className="fab fa-whatsapp text-xl"></i></a>
         </div>
-        <Link to="/estimation" className="bg-orange-600 text-white px-4 py-2 rounded hover:bg-orange-500 transition-colors">
+        <Link to="/estimation" className="bg-orange-600 text-white px-4 py-2 rounded-full hover:bg-orange-500 transition-colors mt-2 md:mt-0">
           Estimation Request
         </Link>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 mt-2 md:mt-0">
           <a href="mailto:LeadgenGroup97@gmail.com" className="hover:text-gray-600 transition-colors flex items-center">
             <i className="fas fa-envelope mr-1"></i> LeadgenGroup97@gmail.com
           </a>
@@ -59,13 +59,14 @@ const Navbar = () => {
       {/* Navbar */}
       <header className={`w-full bg-white border-b border-gray-200 ${scrolled ? 'shadow-lg fixed top-0 left-0 right-0 z-50' : ''}`}>
         <div className="container mx-auto px-4">
-          <div className="relative flex items-center justify-between">
-            <div className="w-60 max-w-full px-4">
-              <a href="/#" className="block w-full py-5">
+          <div className="relative flex items-center justify-between py-3">
+            <div className="px-4">
+              <a href="/#" className="block">
                 <img
                   src={assets.logo} 
                   alt="logo"
-                  className="w-full"
+                  style={{ width: '150px' }} // Set a fixed width for the logo
+                  className="h-auto"
                 />
               </a>
             </div>
@@ -73,9 +74,7 @@ const Navbar = () => {
               <div>
                 <button
                   onClick={() => setOpen(!open)}
-                  className={` ${
-                    open ? "navbarTogglerActive" : ""
-                  } lg:hidden block text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary`}
+                  className={` ${open ? "navbarTogglerActive" : ""} lg:hidden block text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary`}
                 >
                   <span className="block h-1 w-6 bg-gray-600 mb-1"></span>
                   <span className="block h-1 w-6 bg-gray-600 mb-1"></span>
@@ -84,7 +83,7 @@ const Navbar = () => {
                 <nav
                   className={`lg:block ${open ? "block" : "hidden"} transition-all duration-300 ease-in-out lg:static absolute bg-white top-full right-0 w-full lg:w-auto`}
                 >
-                  <ul className="lg:flex lg:space-x-8">
+                  <ul className="lg:flex lg:space-x-6">
                     <ListItem NavLink="/#" activeLink={activeLink} handleLinkClick={handleLinkClick}>Home</ListItem>
                     <ListItem NavLink="/about" activeLink={activeLink} handleLinkClick={handleLinkClick}>About Us</ListItem>
                     <ListItem NavLink="/services" activeLink={activeLink} handleLinkClick={handleLinkClick}>Service</ListItem>
@@ -111,7 +110,7 @@ const ListItem = ({ children, NavLink, activeLink, handleLinkClick }) => {
       <Link
         to={NavLink}
         onClick={() => handleLinkClick(children)}
-        className={`block py-2 px-4 text-base font-medium transition-colors ${activeLink === children ? 'bg-orange-600 text-white' : 'text-gray-600 hover:text-primary'}`}
+        className={`block py-2 px-4 text-base font-medium transition-colors ${activeLink === children ? 'bg-orange-600 text-white rounded-full' : 'text-gray-600 hover:text-primary'}`}
       >
         {children}
       </Link>

@@ -58,27 +58,27 @@ const ConsultationModal = ({ isOpen, onRequestClose }) => {
           bottom: 'auto',
           marginRight: '-50%',
           transform: 'translate(-50%, -50%)',
-          width: '80%',
+          width: '90%',
           maxWidth: '900px',
           padding: '0',
           border: 'none',
           borderRadius: '8px',
-          overflow: 'hidden'
+          maxHeight: '90vh',
+          overflow: 'auto'
         },
       }}
       contentLabel="Consultation Form"
     >
-      <div className="flex">
-        <div className="w-1/3 bg-blue-900 text-white p-8">
+      <div className="flex flex-col md:flex-row h-full">
+        <div className="w-full md:w-1/3 bg-blue-900 text-white p-8">
           <h2 className="text-2xl font-bold mb-4">We're Here to Help.</h2>
           <h3 className="text-xl mb-4">Let's talk!</h3>
-          <p className="mb-8">We listen to your app requirements analyze and suggest the best approach possible for your development.</p>
+          <p className="mb-8">We listen to your app requirements, analyze and suggest the best approach possible for your development.</p>
           <h3 className="text-lg font-bold mb-4">Contact Information</h3>
           <p className="mb-2"><i className="fas fa-phone-alt mr-2"></i> +91 9392123831</p>
           <p className="mb-2"><i className="fas fa-envelope mr-2"></i> LeadgenGroup97@gmail.com</p>
-          {/* <p><i className="fas fa-share-alt mr-2"></i> Share on WhatsApp</p> */}
         </div>
-        <div className="w-2/3 p-8">
+        <div className="w-full md:w-2/3 p-8 overflow-y-auto">
           <button onClick={onRequestClose} className="float-right text-2xl font-bold text-gray-500">&times;</button>
           <h2 className="text-3xl font-bold text-center mb-4">We Offer FREE Consultation</h2>
           <form onSubmit={handleSubmit}>
@@ -134,30 +134,28 @@ const ConsultationModal = ({ isOpen, onRequestClose }) => {
                 />
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label className="block text-gray-700 mb-2" htmlFor="company">Your Company name</label>
-                <input
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label className="block text-gray-700 mb-2" htmlFor="project">Brief about the project *</label>
-                <textarea
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  id="project"
-                  name="project"
-                  rows="4"
-                  value={formData.project}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 mb-2" htmlFor="company">Your Company name</label>
+              <input
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                type="text"
+                id="company"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="block text-gray-700 mb-2" htmlFor="project">Brief about the project *</label>
+              <textarea
+                className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                id="project"
+                name="project"
+                rows="4"
+                value={formData.project}
+                onChange={handleChange}
+                required
+              ></textarea>
             </div>
             <div className="flex items-center mb-4">
               <input
@@ -168,7 +166,7 @@ const ConsultationModal = ({ isOpen, onRequestClose }) => {
                 checked={formData.marketing}
                 onChange={handleChange}
               />
-              <label className="text-gray-700" htmlFor="marketing">Yes, I Want to receive the latest marketing tips from Expert App Devs.</label>
+              <label className="text-gray-700" htmlFor="marketing">Yes, I want to receive the latest marketing tips from Expert App Devs.</label>
             </div>
             <button className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-2 px-4 rounded-lg hover:bg-gradient-to-l transition-colors" type="submit">Submit Now</button>
           </form>

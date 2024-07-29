@@ -28,10 +28,10 @@ const WhyChooseUsSection = () => {
   return (
     <div className="bg-white text-black py-12">
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl md:text-4xl font-bold mb-4">
+        <h2 className="text-2xl md:text-4xl font-bold mb-4 text-center md:text-left">
           <span className="text-blue-600">WHY CHOOSE US</span>
         </h2>
-        <h3 className="text-xl md:text-3xl font-bold mb-8 text-blue-900">
+        <h3 className="text-xl md:text-3xl font-bold mb-8 text-center md:text-left text-blue-900">
           <span className="text-red-500">Why Choose </span> Lead Gen?
         </h3>
         <div className="flex flex-col md:flex-row">
@@ -48,15 +48,21 @@ const WhyChooseUsSection = () => {
               <li><i className="fas fa-check-circle text-orange-600"></i> We face the competitive challenges in the market and keep up with the race today</li>
               <li><i className="fas fa-check-circle text-orange-600"></i> We help our clients efficiently and help them achieve organizational growth</li>
             </ul>
-            <div className="mt-8">
-              <span className="text-3xl font-bold text-orange-600">15+</span> <span className="text-lg">Years of experience</span>
-              <span className="mx-4">|</span>
-              <span className="text-3xl font-bold text-orange-600">1000+</span> <span className="text-lg">Projects completed</span>
-              <span className="mx-4">|</span>
-              <span className="text-3xl font-bold text-orange-600">25+</span> <span className="text-lg">Mobile applications</span>
+            <div className="mt-8 flex flex-col md:flex-row items-center md:items-start">
+              <div className="mb-4 md:mb-0">
+                <span className="text-3xl font-bold text-orange-600">15+</span> <span className="text-lg">Years of experience</span>
+                <span className="mx-4 hidden md:inline-block">|</span>
+              </div>
+              <div className="mb-4 md:mb-0">
+                <span className="text-3xl font-bold text-orange-600">1000+</span> <span className="text-lg">Projects completed</span>
+                <span className="mx-4 hidden md:inline-block">|</span>
+              </div>
+              <div>
+                <span className="text-3xl font-bold text-orange-600">25+</span> <span className="text-lg">Mobile applications</span>
+              </div>
             </div>
           </div>
-          <div className="w-full md:w-1/3 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="w-full md:w-1/3 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {features.map((feature, index) => (
               <div
                 key={index}

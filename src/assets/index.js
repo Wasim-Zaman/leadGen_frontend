@@ -1,4 +1,4 @@
-import logo from "./lead_logo.png";
+import logo from "./lead.png";
 
 const assets = {
   logo,
