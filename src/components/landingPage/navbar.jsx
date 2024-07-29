@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -62,7 +62,7 @@ const Navbar = () => {
             <div className="w-60 max-w-full px-4">
               <a href="/#" className="block w-full py-5">
                 <img
-                  src="https://example.com/logo.png" // Replace with your logo URL
+                  src="../assets/lead_logo.png" // Replace with your logo URL
                   alt="logo"
                   className="w-full"
                 />
