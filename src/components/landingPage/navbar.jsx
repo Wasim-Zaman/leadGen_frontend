@@ -1,12 +1,14 @@
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import assets from "../../assets/index"; // Ensure the assets index includes the new logo
+import '../../assets/css/style.css';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,11 @@ const Navbar = () => {
   const handleLinkClick = (link) => {
     setActiveLink(link);
     setOpen(false); // Close the menu when a link is clicked
+  };
+
+  {/* Toggle sidebar for Desktop and Mobile view */}
+  const toggleSidebar = () => {    
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   const redirectToWhatsApp = () => {
@@ -73,17 +80,30 @@ const Navbar = () => {
             <div className="flex w-full items-center justify-between px-4 lg:px-0">
               <div>
                 <button
-                  onClick={() => setOpen(!open)}
+                  onClick={toggleSidebar}
                   className={` ${open ? "navbarTogglerActive" : ""} lg:hidden block text-gray-600 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-primary`}
+                  aria-expanded={isSidebarOpen} 
+                  aria-controls="sidebar"
+                  aria-label="Toggle navigation"
                 >
                   <span className="block h-1 w-6 bg-gray-600 mb-1"></span>
                   <span className="block h-1 w-6 bg-gray-600 mb-1"></span>
                   <span className="block h-1 w-6 bg-gray-600"></span>
                 </button>
-                <nav
-                  className={`lg:block ${open ? "block" : "hidden"} transition-all duration-300 ease-in-out lg:static absolute bg-white top-full right-0 w-full lg:w-auto`}
-                >
-                  <ul className="lg:flex lg:space-x-6">
+                
+                {/* Overlay */}
+                {isSidebarOpen && (
+                  <div className="fixed inset-0 bg-gray-800 bg-opacity-50 lg:hidden" onClick={toggleSidebar}></div>
+                )}
+
+                {/* Nav Menu */}
+                <div
+                  id="sidebar"
+                  className={`fixed inset-0 left-0 w-64 bg-white shadow-lg transform lg:transform-none lg:relative lg:flex lg:w-auto lg:bg-transparent lg:shadow-none ${
+                    isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+                  } transition-transform duration-200 ease-in-out`}
+                > 
+                  <ul className="flex flex-col lg:flex-row lg:space-x-6 p-4 lg:p-0">
                     <ListItem NavLink="/#" activeLink={activeLink} handleLinkClick={handleLinkClick}>Home</ListItem>
                     <ListItem NavLink="/about" activeLink={activeLink} handleLinkClick={handleLinkClick}>About Us</ListItem>
                     <ListItem NavLink="/services" activeLink={activeLink} handleLinkClick={handleLinkClick}>Service</ListItem>
@@ -92,7 +112,7 @@ const Navbar = () => {
                     <ListItem NavLink="/products" activeLink={activeLink} handleLinkClick={handleLinkClick}>Products</ListItem>
                     <ListItem NavLink="/contact" activeLink={activeLink} handleLinkClick={handleLinkClick}>Contact Us</ListItem>
                   </ul>
-                </nav>
+                </div>
               </div>
             </div>
           </div>
