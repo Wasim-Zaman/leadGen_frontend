@@ -1,0 +1,12 @@
+#sidebar {
+    overflow-y: auto; 
+  }
+  
+  @media (max-width: 1024px) { 
+    #sidebar {
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      z-index: 20;
+    }
+  }
